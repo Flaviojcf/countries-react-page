@@ -35,6 +35,7 @@ export function Home() {
   }
 
   function redirectToCountry(id: string) {
+    handlePrefetchCountry(id)
     navigate(`/country/${id}`, {
       state: countryInformations,
     });
