@@ -8,6 +8,7 @@ export const Container = styled.header`
     background: ${(props)=>props.theme.header};
     color: ${(props)=>props.theme.text};
     width: 100%;
+    transition: all 0.50s linear;
 `;
 
 export const ContainerSwitch = styled.div`
