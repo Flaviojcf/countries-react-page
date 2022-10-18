@@ -3,22 +3,20 @@ import { Container, ContainerSwitch } from "./styles";
 import Switch from "react-switch";
 import { useState } from "react";
 export function Header() {
-  const { handleToggleTheme } = useTheme();
+  const { handleToggleTheme, theme } = useTheme();
 
-  const [isSwitchChecked, setIsSwitchChecked] = useState(false);
-
-  function handleChange() {
-    setIsSwitchChecked(!isSwitchChecked);
-  }
+  const isChecked = theme;
+ 
 
   return (
     <Container>
       <h1>Where in the World?</h1>
-      <ContainerSwitch onClick={handleToggleTheme}>
+      <ContainerSwitch >
         <p>Light Mode</p>
         <Switch
-          onChange={handleChange}
-          checked={isSwitchChecked}
+         
+          onChange={handleToggleTheme}
+          checked={isChecked}
           checkedIcon={false}
           uncheckedIcon={false}
           height={10}
