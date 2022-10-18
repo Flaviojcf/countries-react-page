@@ -1,8 +1,12 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { MenuContent, MenuList, MenuRoot, MenuTrigger } from "./styles";
 import { useState } from "react";
+import { useTheme } from "../../hooks/useTheme";
 
 export function NavigationMenuContainer() {
+  const { handleSelectRegion } = useTheme();
+  const AllRegions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+
   return (
     <MenuRoot>
       <MenuList>
@@ -13,19 +17,13 @@ export function NavigationMenuContainer() {
           </MenuTrigger>
           <MenuContent>
             <ul className="Feature">
-              <li>
-                <p>Africa</p>
-              </li>
-              <li>
-                <p>America</p>
-              </li>
-              <li>
-                <p>Asia</p>
-              </li>
-              <li>
-                <p>Europe</p>
-              </li>
-              <li>Oceania</li>
+              {AllRegions.map((region) => {
+                return (
+                  <li key={region} onClick={() => handleSelectRegion(region)}>
+                    {region}
+                  </li>
+                );
+              })}
             </ul>
             <NavigationMenu.Link />
           </MenuContent>

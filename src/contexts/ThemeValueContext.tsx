@@ -9,6 +9,8 @@ type TypeContextThemeProvider = {
 interface ThemeContextProviderProsp {
   handleToggleTheme: () => void;
   theme: boolean;
+  handleSelectRegion: (id:string) => void;
+  region:string;
 }
 
 export const ThemeValueContext = createContext({} as ThemeContextProviderProsp);
@@ -17,13 +19,19 @@ export function ThemeValueContextProvider({
   children,
 }: TypeContextThemeProvider) {
   const [theme, setTheme] = useState(false);
+  const [region, setRegion] = useState('all')
+  console.log(region)
 
   function handleToggleTheme() {
     setTheme(!theme);
   }
 
+  function handleSelectRegion(id:string) {
+    setRegion(`region/${id}`)
+  }
+
   return (
-    <ThemeValueContext.Provider value={{ handleToggleTheme, theme }}>
+    <ThemeValueContext.Provider value={{ handleToggleTheme, theme, handleSelectRegion, region }}>
       <ThemeProvider theme={theme === true ? DarkTheme : LightTheme}>
         {children}
       </ThemeProvider>

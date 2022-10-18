@@ -9,21 +9,23 @@ import {
   ContainerGroupCountry,
 } from "./styles";
 import { NavigationMenuContainer } from "../../components/NavigationMenuContainer/NavigationMenu";
+import { useTheme } from "../../hooks/useTheme";
 
 export function Home() {
   const [country, setCountry] = useState<any[]>([]);
-  const { isFetching } = useQuery(["all"], () => getCountries(), {
+  const { region } = useTheme();
+  const { isFetching } = useQuery([region], () => getCountries(), {
     staleTime: Infinity,
   });
 
   async function getCountries() {
-    const response = await api.get("all");
+    const response = await api.get(region);
     setCountry(response.data);
   }
 
   return (
     <Container>
-      <NavigationMenuContainer/>
+      <NavigationMenuContainer />
       <ContainerGroupCountry>
         {isFetching ? (
           <ClipLoader
