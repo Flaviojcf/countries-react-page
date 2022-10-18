@@ -12,11 +12,11 @@ import { DarkTheme, LightTheme } from "./styles/themes/default";
 function App() {
   return (
     <BrowserRouter>
-    <QueryClientProvider client={queryClient}>
-      <ThemeValueContextProvider>
-        <Router />
-        <GlobalStyle />
-      </ThemeValueContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeValueContextProvider>
+          <Router />
+          <GlobalStyle />
+        </ThemeValueContextProvider>
       </QueryClientProvider>
     </BrowserRouter>
   );

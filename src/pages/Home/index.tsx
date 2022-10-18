@@ -8,11 +8,12 @@ import {
   ContainerCountryText,
   ContainerGroupCountry,
 } from "./styles";
+import { NavigationMenuContainer } from "../../components/NavigationMenuContainer/NavigationMenu";
 
 export function Home() {
   const [country, setCountry] = useState<any[]>([]);
   const { isFetching } = useQuery(["all"], () => getCountries(), {
-    staleTime: 1000 * 60 * 10,
+    staleTime: Infinity,
   });
 
   async function getCountries() {
@@ -22,6 +23,7 @@ export function Home() {
 
   return (
     <Container>
+      <NavigationMenuContainer/>
       <ContainerGroupCountry>
         {isFetching ? (
           <ClipLoader
