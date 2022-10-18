@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
-  
+    background: ${(props) => props.theme.body};
   }
   
 `;

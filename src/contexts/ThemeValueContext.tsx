@@ -24,7 +24,7 @@ export function ThemeValueContextProvider({
 
   return (
     <ThemeValueContext.Provider value={{ handleToggleTheme, theme }}>
-        <ThemeProvider theme={theme === true ? DarkTheme : LightTheme}>
+      <ThemeProvider theme={theme === true ? DarkTheme : LightTheme}>
         {children}
       </ThemeProvider>
     </ThemeValueContext.Provider>
