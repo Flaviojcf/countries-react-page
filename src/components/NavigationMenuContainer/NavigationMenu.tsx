@@ -1,11 +1,10 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { MenuContent, MenuList, MenuRoot, MenuTrigger } from "./styles";
-import { useState } from "react";
 import { useTheme } from "../../hooks/useTheme";
 
 export function NavigationMenuContainer() {
   const { handleSelectRegion } = useTheme();
-  const AllRegions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  const AllRegions = ["Africa", "America", "Asia", "Europe", "Oceania", "All"];
 
   return (
     <MenuRoot>
