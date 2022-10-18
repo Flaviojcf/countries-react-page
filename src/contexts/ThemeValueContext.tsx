@@ -21,17 +21,15 @@ export function ThemeValueContextProvider({
   const [theme, setTheme] = useState(false);
   const [region, setRegion] = useState("all");
 
-
   function handleToggleTheme() {
     setTheme(!theme);
   }
 
   function handleSelectRegion(id: string) {
-   
     if (id === "All") {
       setRegion("/all");
-    }else {
-    setRegion(`region/${id}`);
+    } else {
+      setRegion(`region/${id}`);
     }
   }
 
